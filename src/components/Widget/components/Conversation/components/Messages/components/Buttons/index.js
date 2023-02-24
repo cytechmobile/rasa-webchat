@@ -8,11 +8,15 @@ import Message from '../Message/index';
 import './styles.scss';
 import ThemeContext from '../../../../../../ThemeContext';
 
-
 class Buttons extends PureComponent {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+
+    this.state = {
+      rating: 0,
+      hover: 0
+    };
 
     const {
       message,
@@ -68,6 +72,24 @@ class Buttons extends PureComponent {
                   >
                     {reply.get('title')}
                   </a>
+                );
+              } else if (reply.get('type') === 'star') {
+                return (
+                  // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                  <button
+                    type="button"
+                    key={index}
+                    className={index <= (this.state.hover || this.state.rating) ? 'rw-star-button rw-star-button-on' : 'rw-star-button rw-star-button-off'}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      this.setState({ rating: index });
+                      this.handleClick(reply);
+                    }}
+                    onMouseEnter={() => this.setState({ hover: index })}
+                    onMouseLeave={() => this.setState({ hover: this.state.rating })}
+                  >
+                    <span className="rw-star">&#9733;</span>
+                  </button>
                 );
               }
               return (

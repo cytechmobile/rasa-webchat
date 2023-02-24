@@ -58,7 +58,11 @@
   }
 
   .#{$namespace}close-button {
-    display: none;
+    @include header-button-fs;
+  }
+
+  .#{$namespace}close {
+    @include header-icon-fs;
   }
 
   .#{$namespace}toggle-fullscreen-button {
@@ -97,13 +101,11 @@
     @include title-fs;
   }
 
-  .#{$namespace}close-button,
-  .#{$namespace}toggle-fullscreen-button {
+  .#{$namespace}close-button {
     @include header-button-fs;
   }
 
-  .#{$namespace}close,
-  .#{$namespace}toggle-fullscreen {
+  .#{$namespace}close {
     @include header-icon-fs;
   }
 
@@ -114,7 +116,7 @@
     .#{$namespace}conversation-container{
     margin-bottom: 0px;
 }}
-  
+
 }
 
 @media screen and (max-width: 800px) {
