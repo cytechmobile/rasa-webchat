@@ -366,6 +366,8 @@ class Widget extends Component {
       socket.on('bot_uttered', (botUttered) => {
         // botUttered.attachment.payload.elements = [botUttered.attachment.payload.elements];
         // console.log(botUttered);
+        this.checkVersionBeforePull();
+        dispatch(pullSession());
         this.handleBotUtterance(botUttered);
       });
 
