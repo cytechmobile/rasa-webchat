@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import PropTypes from 'prop-types';
 import RasaWebchatPro from './src/pro-src/rules-wrapper';
 
@@ -177,7 +177,7 @@ export const rasaWebchatProDefaultTypes = {
   connectOn: 'mount',
   onSocketEvent: {},
   protocol: 'socketio',
-  socketUrl: 'http://localhost',
+  socketUrl: 'http://192.168.23.64',
   protocolOptions: {},
   badge: 0,
   embedded: false,
@@ -215,7 +215,8 @@ export const selfMount = (props, element = null) => {
     }
     const mountElement = element || document.getElementById('rasaWebchatPro')
     const webchatPro = React.createElement(RasaWebchatProWithRules, props);
-    ReactDOM.render(webchatPro, mountElement);
+    const root = createRoot(mountElement);
+    root.render(webchatPro);
   };
   if (document.readyState === 'complete') {
     load();

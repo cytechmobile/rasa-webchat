@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // This should be deleted when using React 16.x,
 // Use ReactDOM.createPortal() instead
@@ -17,7 +17,8 @@ class Portal extends React.Component {
   }
 
   componentDidUpdate() {
-    ReactDOM.render(<div>{this.props.children}</div>, this.portalElement);
+    const root = createRoot(this.portalElement);
+    root.render(<div>{this.props.children}</div>);
   }
 
   componentWillUnmount() {
