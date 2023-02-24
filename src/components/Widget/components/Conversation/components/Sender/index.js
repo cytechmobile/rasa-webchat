@@ -15,6 +15,7 @@ const Sender = ({ sendMessage, inputTextFieldHint, disabledInput, userInput }) =
   function handleSubmit(e) {
     sendMessage(e);
     setInputValue('');
+    return false;
   }
 
 
@@ -23,7 +24,7 @@ const Sender = ({ sendMessage, inputTextFieldHint, disabledInput, userInput }) =
       e.preventDefault();
       // by dispatching the event we trigger onSubmit
       // formRef.current.submit() would not trigger onSubmit
-      formRef.current.dispatchEvent(new Event('submit', { cancelable: true }));
+      formRef.current.requestSubmit();
     }
   }
   return (
