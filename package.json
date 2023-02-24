@@ -21,19 +21,19 @@
     "javascript"
   ],
   "dependencies": {
-    "@popperjs/core": "2.11.4",
+    "@popperjs/core": "2.11.6",
     "@stomp/stompjs": "6.1.2",
-    "immutable": "^4.0.0",
+    "immutable": "^4.2.4",
     "object-hash": "^3.0.0",
     "prop-types": "15.8.1",
     "react-immutable-proptypes": "^2.2.0",
-    "react-inlinesvg": "^2.3.0",
+    "react-inlinesvg": "^3.0.2",
     "react-markdown": "^4.3.1",
-    "react-popper": "^2.2.5",
-    "react-redux": "^7.2.6",
+    "react-popper": "^2.3.0",
+    "react-redux": "^8.0.5",
     "react-slick": "^0.28.1",
     "react-textarea-autosize": "^8.3.3",
-    "redux": "^4.1.2",
+    "redux": "^4.2.1",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^3.1.2",
     "sockjs-client": "^1.4.0"
@@ -46,7 +46,7 @@
     "@babel/preset-react": "7.16.7",
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "@cfaester/enzyme-adapter-react-18": "^0.6.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "27.5.1",
     "babel-loader": "8.2.3",
@@ -71,8 +71,8 @@
     "lodash-webpack-plugin": "^0.11.6",
     "prettier": "2.6.0",
     "prettier-eslint": "13.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "redux-mock-store": "^1.5.4",
     "sass": "^1.49.9",
     "sass-loader": "10.2.0",
@@ -85,8 +85,8 @@
     "webpack-dev-server": "^3.8.0"
   },
   "peerDependencies": {
-    "react": "^16.8.3 || ^17.0.0",
-    "react-dom": "^16.8.3 || ^17.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "jest": {
     "verbose": true,
