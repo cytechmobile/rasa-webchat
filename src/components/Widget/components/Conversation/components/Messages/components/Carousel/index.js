@@ -107,7 +107,7 @@ const Carousel = (props) => {
                       <a
                         key={buttonIndex}
                         href={button.url}
-                        target={linkTarget || '_blank'}
+                        target={linkTarget || '_self'}
                         rel="noopener noreferrer"
                         className="rw-reply"
                         style={{ borderColor: mainColor, color: mainColor }}
