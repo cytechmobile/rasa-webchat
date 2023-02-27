@@ -10,9 +10,9 @@
 .#{$namespace}widget-container {
   
   .#{$namespace}conversation-container{
-      @media screen and (min-width: 800px){
+      /*@media screen and (min-width: 800px){
           margin-bottom: 10px;
-      }
+      }*/
   
       ul {
           padding-left: 10px;
@@ -290,8 +290,6 @@
 }
 
 
-@media screen and (max-width: 800px) {
-  .#{$namespace}hide-sm {
-    display: none;
-  }
+.#{$namespace}hide-sm {
+  display: none;
 }

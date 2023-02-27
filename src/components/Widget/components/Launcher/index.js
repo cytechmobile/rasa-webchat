@@ -91,6 +91,11 @@ const Launcher = ({
     y: 0
   });
 
+  const launcherDragStatus = useRef({
+    x: 0,
+    y: 0
+  });
+
   if (isChatOpen) className.push('rw-hide-sm');
   if (fullScreenMode && isChatOpen) className.push('rw-full-screen rw-hide');
 
@@ -206,7 +211,20 @@ const Launcher = ({
   );
 
   return (
-    <button type="button" style={{ backgroundColor: mainColor }} className={className.join(' ')} onClick={toggle}>
+    <button type="button" style={{ backgroundColor: mainColor }} className={className.join(' ')}
+            onMouseDown={(event) => {
+              launcherDragStatus.current.x = event.clientX;
+              launcherDragStatus.current.y = event.clientY;
+            }}
+            onMouseUp={(event) => {
+              if (
+                Math.abs(launcherDragStatus.current.x - event.clientX) +
+                Math.abs(launcherDragStatus.current.y - event.clientY) <
+                15
+              ) {
+                toggle();
+              }
+            }}>
       <Badge badge={badge} />
       {isChatOpen ? (
         <img
