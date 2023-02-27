@@ -3,16 +3,23 @@
 @import "common.scss";
 
 .#{$namespace}conversation-container {
+
+  .#{$namespace}header-and-loading {
+    flex: 0;
+  }
+
   .#{$namespace}header {
-    background-color: $tertiary;
-    color: $white;
+    background-color: $white;
+    border-bottom: 1px solid $gray-6;
+    color: $accent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    height: 55px;
+    height: 52px;
     font-family: $fontfamily;
     position: relative;
+
     .#{$namespace}avatar {
       all: initial;
       height: 31px;
@@ -20,7 +27,11 @@
       position: absolute;
       top: 12px;
       left: 14px;
+      color: $accent;
+      fill: currentColor;
     }
+
+
   }
 
   .#{$namespace}header.#{$namespace}with-subtitle {
@@ -44,25 +55,21 @@
   .#{$namespace}title {
     font-size: 20px;
     margin: 0;
-    font-family: $fontfamily;
     position: absolute;
-    left: 20px;
-    font-weight: 700;
+    left: 48px;
+    font: $chatheading-font;
     &.#{$namespace}with-avatar {
       left: 58px;
     }
   }
 
+  .#{$namespace}logo {
+    position: absolute;
+    left: 16px;
+  }
+
   .#{$namespace}header-buttons {
     @include header-buttons-fs;
-  }
-
-  .#{$namespace}close-button {
-    @include header-button-fs;
-  }
-
-  .#{$namespace}close {
-    @include header-icon-fs;
   }
 
   .#{$namespace}toggle-fullscreen-button {
@@ -101,11 +108,13 @@
     @include title-fs;
   }
 
-  .#{$namespace}close-button {
+  .#{$namespace}close-button,
+  .#{$namespace}toggle-fullscreen-button {
     @include header-button-fs;
   }
 
-  .#{$namespace}close {
+  .#{$namespace}close,
+  .#{$namespace}toggle-fullscreen {
     @include header-icon-fs;
   }
 
@@ -114,9 +123,19 @@
   }
   &.#{$namespace}widget-container{
     .#{$namespace}conversation-container{
-    margin-bottom: 0px;
-}}
+      margin-bottom: 0px;
+    }}
 
+}
+
+
+
+.#{$namespace}close-button {
+  @include header-button-fs;
+}
+
+.#{$namespace}close {
+  @include header-icon-fs;
 }
 
 @media screen and (max-width: 800px) {
@@ -127,14 +146,6 @@
 
     .#{$namespace}title {
       @include title-fs;
-    }
-
-    .#{$namespace}close-button {
-      @include header-button-fs;
-    }
-
-    .#{$namespace}close {
-      @include header-icon-fs;
     }
 
     .#{$namespace}toggle-fullscreen-button, .#{$namespace}w-.toggle-fullscreen {
