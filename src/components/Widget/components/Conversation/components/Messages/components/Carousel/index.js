@@ -63,9 +63,7 @@ const Carousel = (props) => {
       behavior: 'smooth'
     });
 
-    console.log({rightButton})
     activeCard < carousel.elements.length - 1 ? setActiveCard(activeCard + 1) : setActiveCard(carousel.elements.length - 1);
-    console.log({rightButton})
   };
 
   const { linkTarget } = props;
@@ -146,7 +144,7 @@ const Carousel = (props) => {
           );
         })}
       </div>
-      <div className="rw-carousel-arrows-container">
+      <div className={`rw-carousel-arrows-container ${carousel.elements.length <= 1 ? 'hidden' : ''}`}>
         {leftButton && (
           // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div
@@ -178,7 +176,7 @@ const Carousel = (props) => {
           </div>
         )}
       </div>
-      <div className="rw-carousel-navigation-dots">
+      <div className={`rw-carousel-navigation-dots ${carousel.elements.length <= 1 ? 'hidden' : ''}`}>
         {carousel.elements.map((carouselCard, index) => {
           const defaultActionUrl =
             carouselCard.default_action && carouselCard.default_action.type === 'web_url'
