@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { PROP_TYPES } from 'constants';
 import { addUserMessage, emitUserMessage, setButtons, toggleInputDisabled } from 'actions';
 import Message from '../Message/index';
+import SVG, { Props as SVGProps } from 'react-inlinesvg';
+import starSvg from 'assets/star-button.svg';
+import thumbsUpSvg from 'assets/thumbs-up-button.svg';
+import thumbsDownSvg from 'assets/thumbs-down-button.svg';
 
 import './styles.scss';
 import ThemeContext from '../../../../../../ThemeContext';
@@ -14,8 +18,7 @@ class Buttons extends PureComponent {
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      rating: 0,
-      hover: 0
+      hover: -1
     };
 
     const {
@@ -79,16 +82,33 @@ class Buttons extends PureComponent {
                   <button
                     type="button"
                     key={index}
-                    className={index <= (this.state.hover || this.state.rating) ? 'rw-star-button rw-star-button-on' : 'rw-star-button rw-star-button-off'}
+                    className={index <= this.state.hover ? 'rw-star-button rw-star-button-on' : 'rw-star-button rw-star-button-off'}
                     onClick={(e) => {
                       e.stopPropagation();
-                      this.setState({ rating: index });
                       this.handleClick(reply);
                     }}
                     onMouseEnter={() => this.setState({ hover: index })}
-                    onMouseLeave={() => this.setState({ hover: this.state.rating })}
+                    onMouseLeave={() => this.setState({ hover: -1 })}
                   >
-                    <span className="rw-star">&#9733;</span>
+                    <SVG width="24" height="24"  className="rw-star" src={starSvg} alt="left" />
+                  </button>
+                );
+              } else if (reply.get('type') === 'thumbs-up' || reply.get('type') === 'thumbs-down') {
+                return (
+                  // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                  <button
+                    type="button"
+                    key={index}
+                    className={index === (this.state.hover) ? 'rw-thumbs-button rw-thumbs-button-on' : 'rw-thumbs-button rw-thumbs-button-off'}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      this.handleClick(reply);
+                    }}
+                    onMouseEnter={() => this.setState({ hover: index })}
+                    onMouseLeave={() => this.setState({ hover: -1 })}
+                  >
+                    {reply.get('type') === 'thumbs-down' && <SVG width="24" height="24"  className="rw-thumb-button" src={thumbsDownSvg} alt="left" />}
+                    {reply.get('type') === 'thumbs-up' && <SVG width="24" height="24" className="rw-thumb-button" src={thumbsUpSvg} alt="left" />}
                   </button>
                 );
               }

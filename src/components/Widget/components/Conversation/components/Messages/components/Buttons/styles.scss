@@ -31,13 +31,27 @@
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 26px;
   }
-  .#{$namespace}star-button-on {
-    color: #135afe;
+  .#{$namespace}star-button-on svg{
+    fill: #135afe;
   }
-  .#{$namespace}star-button-off {
-    color: #ccc;
+  .#{$namespace}star-button-off svg{
+    fill: #fff;
+  }
+
+  .#{$namespace}thumbs-button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .#{$namespace}thumbs-button-on svg{
+    fill: #135afe;
+  }
+
+  .#{$namespace}thumbs-button-off svg{
+    fill: #fff;
   }
 
 }

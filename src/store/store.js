@@ -8,6 +8,7 @@ import metadata from './reducers/metadataReducer';
 
 import { getLocalSession } from './reducers/helper';
 import * as actionTypes from './actions/actionTypes';
+import { isObject } from 'sockjs-client/lib/utils/object';
 
 const cleanURL = (url) => {
   const regexProtocolHostPort = /https?:\/\/(([A-Za-z0-9-])+(\.?))+[a-z]+(:[0-9]+)?/;
@@ -26,6 +27,7 @@ function initStore(
   storage,
   docViewer = false,
   onWidgetEvent,
+  onSocketEvent
 ) {
   const customMiddleWare = store => next => (action) => {
     const localSession = getLocalSession(storage, SESSION_NAME);
@@ -37,6 +39,12 @@ function initStore(
     }
     const emitMessage = (payload) => {
       const emit = () => {
+        if(onSocketEvent['user_uttered']) {
+          const customData = onSocketEvent['user_uttered'](payload);
+          if (isObject(customData)) {
+            socket.customData ={...socket.customData, ...customData}
+          }
+        }
         socket.emit(
           'user_uttered', {
             message: payload,

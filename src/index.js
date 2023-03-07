@@ -108,7 +108,8 @@ const ConnectedWidget = forwardRef((props, ref) => {
       instanceSocket.current,
       storage,
       props.docViewer,
-      props.onWidgetEvent
+      props.onWidgetEvent,
+      props.onSocketEvent
     );
     store.current.socketRef = instanceSocket.current.marker;
     store.current.socket = instanceSocket.current;
