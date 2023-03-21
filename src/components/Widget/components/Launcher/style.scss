@@ -30,7 +30,7 @@
 
 .#{$namespace}launcher {
   @include animation(0, 0.5s, slide-in);
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   background-color: $tertiary;
