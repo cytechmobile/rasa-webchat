@@ -107,8 +107,8 @@ class Buttons extends PureComponent {
                     onMouseEnter={() => this.setState({ hover: index })}
                     onMouseLeave={() => this.setState({ hover: -1 })}
                   >
-                    {reply.get('type') === 'thumbs-down' && <SVG width="24" height="24"  className="rw-thumb-button" src={thumbsDownSvg} alt="left" />}
                     {reply.get('type') === 'thumbs-up' && <SVG width="24" height="24" className="rw-thumb-button" src={thumbsUpSvg} alt="left" />}
+                    {reply.get('type') === 'thumbs-down' && <SVG width="24" height="24"  className="rw-thumb-button" src={thumbsDownSvg} alt="left" />}
                   </button>
                 );
               }
