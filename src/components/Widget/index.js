@@ -546,10 +546,12 @@ class Widget extends Component {
       );
     } else if (isVideo(messageClean)) {
       const element = messageClean.attachment.payload;
+      const autoplay = messageClean.attachment.autoplay === "true";
       this.props.dispatch(
         addVideoSnippet({
           title: element.title,
-          video: element.src
+          video: element.src,
+          autoplay: autoplay
         })
       );
     } else if (isImage(messageClean)) {

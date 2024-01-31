@@ -71,6 +71,7 @@ export const PROP_TYPES = {
     id: PropTypes.number,
     title: PropTypes.string,
     src: PropTypes.string,
+    autoplay: PropTypes.bool,
     sender: senderType
   }),
 

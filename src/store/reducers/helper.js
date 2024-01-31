@@ -32,6 +32,7 @@ export function createVideoSnippet(video, sender) {
     component: Video,
     title: video.title,
     video: video.video,
+    autoplay: video.autoplay,
     sender,
     showAvatar: true,
     timestamp: new Date().getTime()
